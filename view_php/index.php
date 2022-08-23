@@ -9,11 +9,11 @@ require_once 'cabecalho.html';
     </div>
 </div>
 
-<div class="direita">
+<!-- <div class="direita">
     <div class="informacoes">
         <h1>Destaques</h1>
     </div>
-</div>
+</div> -->
 <?php
 require_once 'rodape.html';
 ?>

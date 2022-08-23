@@ -45,7 +45,7 @@ function deleteEmployee(id) {
         httpRequest.onreadystatechange = returnProcess;
         httpRequest.open('DELETE', 'employee/' + id);
         httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        httpRequest.send("id=" + id);
+        httpRequest.send();
 
         function returnProcess() {
             if (httpRequest.readyState === XMLHttpRequest.DONE) {
