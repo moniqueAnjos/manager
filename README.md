@@ -17,6 +17,8 @@ O banco de dados utilizado foi o MySQL, foi criada apenas uma tabela:
         PRIMARY KEY(`id`)
     ) ENGINE = InnoDB;
 
+***Observação*** : A conexão foi feita com PDO
+
 # Apresentando as telas
 ## Tela Principal
 
@@ -42,7 +44,7 @@ O banco de dados utilizado foi o MySQL, foi criada apenas uma tabela:
 
 ----------
 
-## Opções disponiveis na listagem
+## Opções disponível na listagem
 
 ![alt text](img/Opcoes.png)
 

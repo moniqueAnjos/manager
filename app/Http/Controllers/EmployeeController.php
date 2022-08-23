@@ -10,7 +10,6 @@ require_once "app/Http/Requests/EmployeeRequest.php";
 use App\Http\Request\EmployeeRequest;
 use App\Repositories\EmployeeRepository;
 use App\Services\EmployeeService;
-use Exception;
 
 class EmployeeController
 {

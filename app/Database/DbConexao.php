@@ -2,9 +2,7 @@
 
 namespace App\Database;
 
-use Exception;
 use PDO;
-use PDOException;
 
 set_time_limit(200);
 set_time_limit(200);
@@ -17,6 +15,7 @@ class DbConexao
         $dbname = "db_gestao";
         $username = "root";
         $link = new PDO("mysql:host=$host;dbname=$dbname", $username, '');
+        $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         if (!$link) {
             print "Error: Falha ao conectar-se com o banco de dados MySQL.";
