@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '19f69e9b4a8f85316ec0591bbe625c2e0dec0ea8',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '19f69e9b4a8f85316ec0591bbe625c2e0dec0ea8',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -27,15 +27,6 @@
             'install_path' => __DIR__ . '/../doctrine/instantiator',
             'aliases' => array(),
             'dev_requirement' => true,
-        ),
-        'docusign/esign-client' => array(
-            'pretty_version' => 'v5.7.0',
-            'version' => '5.7.0.0',
-            'reference' => '2743b1d1d82cba57b37042ac3a2be111625aa5dd',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../docusign/esign-client',
-            'aliases' => array(),
-            'dev_requirement' => false,
         ),
         'firebase/php-jwt' => array(
             'pretty_version' => 'v5.5.1',

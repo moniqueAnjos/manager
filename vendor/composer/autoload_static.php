@@ -48,7 +48,6 @@ class ComposerStaticInit0c3f05abbf5c1dcea3458b2a560586af
         ),
         'D' => 
         array (
-            'DocuSign\\eSign\\' => 15,
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
         ),
@@ -100,10 +99,6 @@ class ComposerStaticInit0c3f05abbf5c1dcea3458b2a560586af
         'Firebase\\JWT\\' => 
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
-        ),
-        'DocuSign\\eSign\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/docusign/esign-client/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (

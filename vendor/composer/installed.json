@@ -74,68 +74,6 @@
             "install-path": "../doctrine/instantiator"
         },
         {
-            "name": "docusign/esign-client",
-            "version": "v5.7.0",
-            "version_normalized": "5.7.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/docusign/docusign-esign-php-client.git",
-                "reference": "2743b1d1d82cba57b37042ac3a2be111625aa5dd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/docusign/docusign-esign-php-client/zipball/2743b1d1d82cba57b37042ac3a2be111625aa5dd",
-                "reference": "2743b1d1d82cba57b37042ac3a2be111625aa5dd",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "firebase/php-jwt": "^5.0",
-                "php": ">=5.4"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "*",
-                "phpunit/phpunit": "~4.8",
-                "satooshi/php-coveralls": "~1.0",
-                "squizlabs/php_codesniffer": "~2.6"
-            },
-            "time": "2020-11-01T20:58:01+00:00",
-            "type": "library",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "DocuSign\\eSign\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "DocuSign",
-                    "homepage": "https://developers.docusign.com"
-                }
-            ],
-            "description": "The DocuSign PHP library makes integrating DocuSign into your websites a super fast and painless process. The library is open sourced on GitHub, look for the docusign-php-client repository. Join the eSign revolution!",
-            "homepage": "https://developers.docusign.com",
-            "keywords": [
-                "agreement",
-                "api",
-                "docusign",
-                "eSignature",
-                "php",
-                "sdk"
-            ],
-            "support": {
-                "issues": "https://github.com/docusign/docusign-esign-php-client/issues",
-                "source": "https://github.com/docusign/docusign-esign-php-client/tree/v5.7.0"
-            },
-            "install-path": "../docusign/esign-client"
-        },
-        {
             "name": "firebase/php-jwt",
             "version": "v5.5.1",
             "version_normalized": "5.5.1.0",

@@ -2,8 +2,6 @@
 
 namespace App\Services;
 
-require_once "vendor/autoload.php";
-
 use App\Interfaces\EmployeeRepositoryInterface;
 
 class EmployeeService
