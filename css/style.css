@@ -5,8 +5,7 @@
         font-family: 'Roboto', sans-serif;
     }
     
-    p,
-    span {
+    p {
         color: #ffffff;
     }
     
@@ -20,29 +19,14 @@
         font-size: 22px;
     }
     
-    input,
-    select,
-    textarea,
-    button {
-        width: 100%;
-        padding: 10px 15px;
-        margin: 10px 0px 10px 0px;
-        box-sizing: border-box;
-        border-radius: 3px;
-        background-color: transparent;
-        color: #333;
+    .app {
+        padding: 10px 0px 10px 0px;
     }
     
-    .texto-branco {
-        color: #ffffff;
-    }
-    
-    .borda-branca {
-        border: solid 1px #fff;
-    }
-    
-    .borda-preta {
-        border: solid 1px #333;
+    .appForm {
+        padding-left: 200px;
+        padding-right: 200px;
+        padding-top: 20px;
     }
     
     button {
@@ -51,24 +35,11 @@
         color: #fff;
     }
     
-    .buttonExcluir {
-        background-color: #da3131;
-        cursor: pointer;
-        color: #fff;
-    }
-    
     .buttonGrid {
-        margin: 1px 0px 1px 0px;
-        padding: 2px 2px;
-        width: 40%;
-    }
-    
-    .buttonExcluir:hover {
-        background-color: #c91d17;
-    }
-    
-    button:hover {
-        background-color: #6ea22c;
+        height: 40px !important;
+        width: 40px;
+        min-width: 40px !important;
+        margin-right: 5px;
     }
     
      ::placeholder {

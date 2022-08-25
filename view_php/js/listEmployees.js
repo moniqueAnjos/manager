@@ -1,74 +1,118 @@
-function fetchData() {
-    httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = returnProcess;
-    httpRequest.open('GET', 'employeeAll');
-    httpRequest.send();
-
-    function returnProcess() {
-        if (httpRequest.readyState === XMLHttpRequest.DONE) {
-            if (httpRequest.status === 200) {
-                var dados = JSON.parse(httpRequest.responseText);
-                assemblyTable(dados["result"]);
-
-            } else {
-                console.log('Houve algum problema com a requisição.');
-            }
-        }
-    }
-}
-
-function assemblyTable(dados) {
-    for (i = 0; i < dados.length; i++) {
-        var rowNode = oTable
-            .row.add([dados[i].id,
-                dados[i].name,
-                dados[i].email,
-                dados[i].telephone,
-                dados[i].genderFormat,
-                ' <button onclick="editEmployee(' + dados[i].id + ')" id="btnEdit" type="button" class="buttonGrid">Editar</button>' +
-                '<button onclick="deleteEmployee(' + dados[i].id + ')" id="btnEdit" type="button" class="buttonGrid buttonExcluir">Excluir</button>'
-            ])
-            .draw()
-            .node();
-        $(rowNode).css('cursor', 'pointer');
-        oTable.draw();
-    }
-}
-
-function editEmployee(id) {
-    window.location.href = "requestEditEmployee?id=" + id;
-}
-
-function deleteEmployee(id) {
-    if (window.confirm("Você realmente deseja deletar este funcionário?")) {
-        httpRequest = new XMLHttpRequest();
-        httpRequest.onreadystatechange = returnProcess;
-        httpRequest.open('DELETE', 'employee/' + id);
-        httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        httpRequest.send();
-
-        function returnProcess() {
-            if (httpRequest.readyState === XMLHttpRequest.DONE) {
-                if (httpRequest.status === 200) {
-                    var dados = JSON.parse(httpRequest.responseText);
-                    oTable.clear().draw();
-                    assemblyTable(dados["result"]);
-                    notify(dados["message"], 'sucesso');
-                } else {
-                    notify('Houve algum problema com a requisição.', 'erro');
+new Vue({
+    el: '#app',
+    vuetify: new Vuetify(),
+    data() {
+        return {
+            page: 1,
+            last_page: null,
+            alerta: factoryAlert('alerta'),
+            dialogueDelete: false,
+            showGrid: true,
+            semRegistros: 'Nenhum registro encontrado',
+            search: '',
+            locale: 'pt-BR',
+            headers: [{
+                    text: 'Código',
+                    align: 'start',
+                    value: 'id',
+                },
+                {
+                    text: 'Nome',
+                    value: 'name',
+                },
+                {
+                    text: 'E-mail',
+                    value: 'email',
+                },
+                {
+                    text: 'Telefone',
+                    value: 'telephone',
+                },
+                {
+                    text: 'Ações',
+                    value: 'actions',
                 }
-            }
+            ],
+            mainList: [],
+            objPrincipal: factoryEmployees(),
         }
-    }
-}
 
-$(document).ready(function() {
-    oTable = $('#listagemFunc').DataTable({
-        deferRender: true,
-        scrollY: 300,
-        scrollCollapse: true,
-        scroller: true,
-        order: false,
-    });
-    fetchData();
-});
+    },
+    watch: {
+        dialogueDelete(val) {
+            val || this.closeDelete()
+        },
+        page() {
+            return this.getList()
+        }
+    },
+    methods: {
+        getId(item) {
+            if (item !== null) {
+                return item.id
+            }
+            return '';
+        },
+        getName(item) {
+            if (item !== null) {
+                return item.name
+            }
+            return 'NOME NÃO ENCONTRADO';
+        },
+        getEmail(item) {
+            if (item !== null) {
+                return item.email
+            }
+            return '';
+        },
+        getTelephone(item) {
+            if (item !== null) {
+                return item.telephone
+            }
+            return '';
+        },
+        getGender(item) {
+            if (item !== null) {
+                return item.genderFormat
+            }
+            return '';
+        },
+        getList() {
+            this.objPrincipal.index(this.search, this.page)
+                .then(dados => {
+                    this.mainList = dados.data.result;
+                    this.last_page = dados.data.last_page;
+                });
+        },
+        cleanEmployee() {
+            this.objPrincipal = factoryEmployees();
+        },
+        deleteEmployee(item) {
+            this.objPrincipal.id = item.id;
+            this.dialogueDelete = true
+        },
+        prepareToChange(item) {
+            window.location.href = "requestEditEmployee?id=" + item.id;
+        },
+        deleteEmployeeConfirm() {
+            self = this;
+            self.objPrincipal.delete()
+                .then(response => {
+                    self.alerta.mostra(response.data.message, 'success');
+                    self.getList();
+                    self.closeDelete();
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+
+        },
+        closeDelete() {
+            this.dialogueDelete = false
+            this.cleanEmployee();
+        },
+    },
+    created() {
+        this.getList();
+    }
+})

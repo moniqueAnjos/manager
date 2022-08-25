@@ -10,6 +10,7 @@ require_once "app/Http/Requests/EmployeeRequest.php";
 use App\Http\Request\EmployeeRequest;
 use App\Repositories\EmployeeRepository;
 use App\Services\EmployeeService;
+use Exception;
 
 class EmployeeController
 {
@@ -24,7 +25,7 @@ class EmployeeController
 
     public function getEmployeeById($id)
     {
-        $employee = $this->employeeService->getEmployeeById($id[1]);
+        $employee = $this->employeeService->getEmployeeById($id[1])[0];
         $this->employeeRequest->formatResponse(null, 200, $employee);
     }
 

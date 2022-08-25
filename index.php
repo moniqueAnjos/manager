@@ -22,7 +22,7 @@ switch ($urlArray1[0]) {
         break;
     case 'requestEditEmployee':
         require_once 'view_php/newEmployee.php';
-        break;
+        break;   
 }
 
 try {
