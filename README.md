@@ -4,6 +4,17 @@
 
 Manager é um software simples que gerencia funcionários.
 
+# Tecnologias usadas
+
+- Backend
+    - `PHP`
+- Frontend
+    - `JavaScript`
+    - `Vuejs(cdn)`
+    - `Vuetify(cdn)`
+    - `CSS`
+    - `HTML`
+
 # Banco de dados
 
 O banco de dados utilizado foi o MySQL, foi criada apenas uma tabela:

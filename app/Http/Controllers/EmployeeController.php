@@ -40,6 +40,8 @@ class EmployeeController
         if ($this->employeeService->deleteEmployee($id[1])) {
             $data =  $this->employeeService->getAllEmployees();
             $this->employeeRequest->formatResponse("Funcionário removido com sucesso!", 200, $data);
+        } else {
+            throw new Exception('Erro ao tentar excluir funcionário');
         }
     }
     public function saveEmployee()
@@ -48,6 +50,8 @@ class EmployeeController
 
         if ($this->employeeService->createEmployee($dataArray)) {
             $this->employeeRequest->formatResponse("Dados inseridos com sucesso!", 201, '');
+        } else {
+            throw new Exception('Erro ao tentar inserir funcionário');
         }
     }
     public function editEmployee($id)
@@ -55,6 +59,8 @@ class EmployeeController
         $dataArray = $this->commonData();
         if ($this->employeeService->editEmployee($dataArray, $id[1])) {
             $this->employeeRequest->formatResponse("Dados alterados com sucesso!", 200, '');
+        } else {
+            throw new Exception('Erro ao tentar editar funcionário');
         }
     }
 

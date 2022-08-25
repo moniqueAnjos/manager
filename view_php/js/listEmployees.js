@@ -98,8 +98,12 @@ new Vue({
             self = this;
             self.objPrincipal.delete()
                 .then(response => {
-                    self.alerta.mostra(response.data.message, 'success');
-                    self.getList();
+                    if (response.data.error) {
+                        self.alerta.mostra(response.data.message, 'error');
+                    } else {
+                        self.alerta.mostra(response.data.message, 'success');
+                        self.getList();
+                    }
                     self.closeDelete();
                 })
                 .catch(function(error) {
